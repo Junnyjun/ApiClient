@@ -1,0 +1,13 @@
+server:
+  port: 8787
+
+default:
+  path: https://gorest.co.in
+  token: Bearer 65733dbf1bfc280f200d1adec4ab445e866ddf2df921b08d2a091ed02c7ac342
+
+logging:
+  level:
+    reactor:
+      netty:
+        http:
+          client: trace
