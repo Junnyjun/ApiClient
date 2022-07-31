@@ -76,9 +76,6 @@ public class NettyClient {
         mono.subscribe(objects -> {
             System.out.println(objects);
         });
-
-
-
         return mono;
     }
 
