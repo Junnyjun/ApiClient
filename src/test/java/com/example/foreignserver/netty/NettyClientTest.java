@@ -47,23 +47,13 @@ class NettyClientTest {
     @Test
     void commentPostTest() {
         nettyClient.commentPost();
-//        System.out.println("objects = " + objectMapper.convertValue(obj[0], CommentResponse.class));
         System.out.println("objects = " + nettyClient.commentPost());
     }
 
     @Test
     void gasdf() {
-
         ResponseEntity<Void> obj = nettyClient.userRegister();
-
         Assertions.assertThat(obj.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
-    @Test
-    void 포스트_클라이언트_등록() {
-        Object[] objects = nettyClient.postClient();
-        nettyClient.postClientRegister();
-
-
-    }
 }

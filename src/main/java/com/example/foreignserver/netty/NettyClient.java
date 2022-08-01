@@ -53,34 +53,6 @@ public class NettyClient {
                 .block();
     }
 
-    public Object[] postClientRegister() {
-        PostResponse postResponse = PostResponse.builder()
-                .id(123L)
-                .userId("13")
-                .title("123")
-                .body("123")
-                .build();
-
-
-        String url = "https://gorest.co.in/public/v2/posts?access-token=xxx";
-        Mono<Object[]> mono = client.webClient()
-                .post()
-//                .header("")
-                .uri(url)
-                .bodyValue(postResponse)
-                .retrieve()
-                .bodyToMono(Object[].class);
-
-        mono.subscribeOn();
-
-        mono.subscribe(objects -> {
-            System.out.println(objects);
-        });
-        return mono;
-    }
-
-
-
     public ResponseEntity<Void> commentPost() {
         String url = "https://gorest.co.in/public/v2/posts/59/comments";
 
