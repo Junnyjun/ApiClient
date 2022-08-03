@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
+import java.net.URI;
+
 
 @SpringBootTest
 class RestClientTest {
@@ -30,4 +32,25 @@ class RestClientTest {
         System.out.println("o = " + o.toString());
     }
 
+    @Test
+    void postForEntity(){
+        ResponseEntity<Posts> o = restClient.postEntity();
+        System.out.println("o = " + o.toString());
+    }
+
+    @Test
+    void postForObject(){
+        Posts o = restClient.postObject();
+        System.out.println("o = " + o.toString());
+    }
+    @Test
+    void postLocation(){
+        URI o = restClient.postLocation();
+        System.out.println("o = " + o.toString());
+    }
+
+    @Test
+    void put(){
+        restClient.put();
+    }
 }

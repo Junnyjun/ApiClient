@@ -11,6 +11,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 
+import static com.example.foreignserver.restApi.Posts.of;
 import static java.util.Map.of;
 
 @Component
@@ -20,9 +21,6 @@ public class RestClient {
     @Value("${default.path}")
     private String URL;
 
-    public void delete(){
-        restTemplate.delete(URL + "/public/v2/users");
-    }
     public UserResponse[] getForObject(){
         return restTemplate.getForObject(URL + "/public/v2/users", UserResponse[].class);
     }
@@ -37,11 +35,33 @@ public class RestClient {
         return restTemplate.getForEntity(uri, PostResponse[].class);
     }
 
-//    public ResponseEntity<UserResponse[]> post(){
-//        UriComponentsBuilder
-//                .fromHttpUrl("https://jsonplaceholder.typicode.com/posts")
-//                .
-//
-//        return restTemplate.postForEntity(URL + "/public/v2/users", UserResponse[].class);
-//    }
+    public ResponseEntity<Posts> postEntity(){
+        return restTemplate.postForEntity("https://jsonplaceholder.typicode.com/posts",
+                of(1234L,1234L,"title","body"),
+                Posts.class);
+    }
+    public Posts postObject(){
+        return restTemplate.postForObject("https://jsonplaceholder.typicode.com/posts",
+                of(1234L,1234L,"title","body"),
+                Posts.class);
+    }
+
+    public ResponseEntity<Posts> post(){
+        return restTemplate.postForEntity("https://jsonplaceholder.typicode.com/posts",
+                of(1234L,1234L,"title","body"),
+                Posts.class);
+    }
+    public URI postLocation(){
+        return restTemplate.postForLocation("https://jsonplaceholder.typicode.com/posts",
+                of(1234L,1234L,"title","body"));
+    }
+
+    public void delete(){
+        restTemplate.delete(URL + "/public/v2/users");
+    }
+
+    public void put(){
+        restTemplate.put("https://jsonplaceholder.typicode.com/posts/1",
+                of(1234L,1234L,"title","body"));
+    }
 }
