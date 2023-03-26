@@ -25,16 +25,15 @@ dependencyManagement {
 dependencies {
 	implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-
 	implementation 'com.squareup.okhttp3:okhttp:4.9.2'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'com.google.guava:guava:31.1-jre'
+	implementation 'com.konghq:unirest-java:3.14.1'
 
 	annotationProcessor 'org.projectlombok:lombok'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
