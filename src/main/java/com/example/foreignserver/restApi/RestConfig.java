@@ -1,4 +1,4 @@
-package com.example.foreignserver.config;
+package com.example.foreignserver.restApi;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

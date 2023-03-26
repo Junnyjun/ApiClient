@@ -2,6 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.7.2'
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
 	id 'java'
+	id 'org.jetbrains.kotlin.jvm' version '1.5.31'
+
 }
 
 group = 'com.example'
@@ -11,8 +13,19 @@ sourceCompatibility = '17'
 repositories {
 	mavenCentral()
 }
+ext {
+	set('springCloudVersion', "2021.0.4")
+}
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
 
 dependencies {
+	implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'com.google.guava:guava:31.1-jre'
