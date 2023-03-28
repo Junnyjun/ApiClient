@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '3.0.2'
+	id 'org.springframework.boot' version '2.7.9'
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
 	id 'java'
 	id 'org.jetbrains.kotlin.jvm' version '1.8.0'
@@ -35,6 +35,11 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+	//redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
 
 }
 
